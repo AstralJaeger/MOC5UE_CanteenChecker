@@ -1,0 +1,15 @@
+name: Build Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    uses: ./.github/workflows/android-common.yaml
+    with:
+      runTests: true
+      buildRelease: false
+      uploadArtifacts: false

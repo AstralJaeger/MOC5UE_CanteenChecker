@@ -1,0 +1,17 @@
+name: Release Workflow
+
+on:
+  push:
+    tags:
+    - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    uses: ./.github/workflows/android-common.yaml
+    with:
+      runTests: true
+      buildRelease: true
+      uploadArtifacts: true
