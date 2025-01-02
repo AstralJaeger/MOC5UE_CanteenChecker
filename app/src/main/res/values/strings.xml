@@ -1,3 +1,23 @@
 <resources>
+
+    <!-- LoginActivity -->
     <string name="app_name">Canteen Checker Admin</string>
+    <string name="btn_login">Login</string>
+    <string name="lbl_password">Password</string>
+    <string name="lbl_username">Username</string>
+    <string name="login">Login</string>
+    <string name="message_login_failed">Login failed, pleaase check username and password</string>
+
+    <!-- OverviewActivity -->
+    <string name="text_dish">Dish of the day</string>
+    <string name="text_waiting_time">Waiting time</string>
+    <string name="text_minutes">minutes</string>
+    <string name="text_location">Location</string>
+    <string name="message_canteen_not_found">Canteen not found</string>
+    <string name="message_no_call_permission">No permission to make phone call</string>
+    <string name="message_call_not_possible">Call not possible</string>
+    <string name="message_show_website_not_possible">Showing of website not possible</string>
+    <string name="tag_map_fragment">com.google.android.gms.maps.SupportMapFragment</string>
+    <string name="save">Save</string>
+
 </resources>

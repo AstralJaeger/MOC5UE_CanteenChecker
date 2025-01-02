@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ProgressBar
+        android:id="@+id/viwProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ScrollView
+        android:id="@+id/viwContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/distance_medium"
+                android:layout_marginVertical="@dimen/distance_small"
+                android:ems="10"
+                android:inputType="text"
+                android:textSize="24sp"
+                tools:text="Name" />
+
+            <EditText
+                android:id="@+id/edtAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/distance_medium"
+                android:layout_marginVertical="@dimen/distance_small"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Address"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/edtPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/distance_medium"
+                android:layout_marginVertical="@dimen/distance_small"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Phone Number"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/edtWebsite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/distance_medium"
+                android:layout_marginVertical="@dimen/distance_small"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Website"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/edtDish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/distance_medium"
+                android:layout_marginVertical="@dimen/distance_small"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Dish"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/edtDishPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/distance_medium"
+                android:layout_marginVertical="@dimen/distance_small"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:text="Dish Price"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/edtWaitingTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/distance_medium"
+                android:layout_marginVertical="@dimen/distance_small"
+                android:ems="10"
+                android:inputType="number"
+                android:text="Waiting Time"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btnLoad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
