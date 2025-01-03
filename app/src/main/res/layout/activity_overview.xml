@@ -50,83 +50,132 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/text_name"
+                style="@style/TextAppearance.MaterialComponents.Overline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/distance_medium"
+                android:layout_marginTop="@dimen/distance_small"
+                android:text="@string/text_name" />
+
             <EditText
                 android:id="@+id/edtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/distance_medium"
-                android:layout_marginVertical="@dimen/distance_small"
                 android:ems="10"
                 android:inputType="text"
                 android:textSize="24sp"
                 tools:text="Name" />
+
+            <TextView
+                android:id="@+id/text_phonenumber"
+                style="@style/TextAppearance.MaterialComponents.Overline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/distance_medium"
+                android:layout_marginTop="@dimen/distance_large"
+                android:text="@string/text_phonenumber" />
 
             <EditText
                 android:id="@+id/edtPhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/distance_medium"
-                android:layout_marginVertical="@dimen/distance_small"
                 android:ems="10"
-                android:inputType="text"
-                android:text="Phone Number"
+                android:inputType="phone"
                 android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/text_website"
+                style="@style/TextAppearance.MaterialComponents.Overline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/distance_medium"
+                android:layout_marginTop="@dimen/distance_large"
+                android:text="@string/text_website" />
 
             <EditText
                 android:id="@+id/edtWebsite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/distance_medium"
-                android:layout_marginVertical="@dimen/distance_small"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Website"
                 android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/text_dish"
+                style="@style/TextAppearance.MaterialComponents.Overline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/distance_medium"
+                android:layout_marginTop="@dimen/distance_large"
+                android:text="@string/text_dish" />
 
             <EditText
                 android:id="@+id/edtDish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/distance_medium"
-                android:layout_marginVertical="@dimen/distance_small"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Dish"
                 android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/text_dishprice"
+                style="@style/TextAppearance.MaterialComponents.Overline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/distance_medium"
+                android:layout_marginTop="@dimen/distance_large"
+                android:text="@string/text_dishprice" />
 
             <EditText
                 android:id="@+id/edtDishPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/distance_medium"
-                android:layout_marginVertical="@dimen/distance_small"
                 android:ems="10"
                 android:inputType="numberDecimal"
-                android:text="Dish Price"
                 android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/text_waiting_time"
+                style="@style/TextAppearance.MaterialComponents.Overline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/distance_medium"
+                android:layout_marginTop="@dimen/distance_large"
+                android:text="@string/text_waiting_time" />
 
             <EditText
                 android:id="@+id/edtWaitingTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/distance_medium"
-                android:layout_marginVertical="@dimen/distance_small"
                 android:ems="10"
                 android:inputType="number"
-                android:text="Waiting Time"
                 android:textSize="24sp" />
 
-            <EditText
-                android:id="@+id/edtAddress"
+<!--            <EditText-->
+<!--                android:id="@+id/edtAddress"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="@dimen/distance_medium"-->
+<!--                android:layout_marginVertical="@dimen/distance_small"-->
+<!--                android:editable="false"-->
+<!--                android:ems="10"-->
+<!--                android:inputType="text"-->
+<!--                android:text="Address"-->
+<!--                android:textSize="24sp" />-->
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fcvReview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/distance_medium"
-                android:layout_marginVertical="@dimen/distance_small"
-                android:editable="false"
-                android:ems="10"
-                android:inputType="text"
-                android:text="Address"
-                android:textSize="24sp" />
+                android:layout_marginTop="@dimen/distance_large"/>
 
         </LinearLayout>
     </ScrollView>

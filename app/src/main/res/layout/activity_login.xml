@@ -5,13 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="425dp"
-        android:layout_height="950dp"
-        android:orientation="vertical"
+    <ImageView
+        android:id="@+id/appIcon"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="@dimen/distance_large"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/distance_small"
+        android:layout_marginTop="@dimen/distance_large"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appIcon"
+        app:layout_constraintVerticalBias="0.33">
 
         <EditText
             android:id="@+id/edtUserName"
@@ -20,8 +36,10 @@
             android:layout_marginLeft="@dimen/distance_small"
             android:layout_marginTop="@dimen/distance_medium"
             android:layout_marginRight="@dimen/distance_small"
+            android:autofillHints="username"
+            android:drawableStart="@drawable/account_circle"
             android:ems="10"
-            android:hint="Username"
+            android:hint="@string/username"
             android:inputType="text" />
 
         <EditText
@@ -31,8 +49,10 @@
             android:layout_marginLeft="@dimen/distance_small"
             android:layout_marginTop="@dimen/distance_medium"
             android:layout_marginRight="@dimen/distance_small"
+            android:autofillHints="password"
+            android:drawableStart="@drawable/password"
             android:ems="10"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword" />
 
         <Button
@@ -43,6 +63,7 @@
             android:layout_marginLeft="@dimen/distance_small"
             android:layout_marginTop="@dimen/distance_medium"
             android:layout_marginRight="@dimen/distance_small"
+            android:drawableStart="@drawable/login"
             android:text="@string/login"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
     </LinearLayout>
