@@ -1,5 +1,6 @@
 package com.example.canteenchecker.adminapp.ui
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -43,10 +44,20 @@ class LoginActivity: AppCompatActivity() {
                 Toast.makeText(this@LoginActivity, R.string.message_login_failed, Toast.LENGTH_SHORT).show()
             }
             .onSuccess {
+                Log.v(TAG, "Authentication successful")
+
+                binding.edtUserName.text.clear()
+                binding.edtPassword.text.clear()
+                binding.btnLogIn.isEnabled = true
+                binding.btnLogIn.clearFocus()
+
                 (application as CanteenCheckerAdminApplication).authenticationToken = it
-                startActivity(Intent(this@LoginActivity, OverviewActivity::class.java))
-                // setResult(Activity.RESULT_OK)
-                // finish()
+                val intent = Intent(this@LoginActivity, OverviewActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+
+                setResult(Activity.RESULT_OK)
+                finish()
             }
     }
 

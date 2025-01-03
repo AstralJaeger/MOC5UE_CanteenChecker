@@ -1,6 +1,8 @@
 package com.example.canteenchecker.adminapp.ui
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -8,15 +10,19 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.canteenchecker.adminapp.AuthUtils
 import com.example.canteenchecker.adminapp.CanteenCheckerAdminApplication
 import com.example.canteenchecker.adminapp.R
 import com.example.canteenchecker.adminapp.core.OwnedCanteenDetails
+import com.example.canteenchecker.adminapp.core.sendCanteenChangedBroadcast
 import com.example.canteenchecker.adminapp.databinding.ActivityOverviewBinding
 import com.example.canteenchecker.consumerapp.api.AdminApiFactory
 import kotlinx.coroutines.launch
 import java.util.Locale
+
 
 class OverviewActivity : AppCompatActivity() {
 
@@ -32,6 +38,30 @@ class OverviewActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.v(TAG, "onBackPressed - preventing further back navigation")
+            }
+        })
+
+        AuthUtils.checkAuthentication(this) {
+            updateCanteenDetails {
+                canteen?.let {
+                    Log.v(TAG, "inflating canteen reviews fragment")
+                    supportFragmentManager.beginTransaction()
+                        .add(R.id.fcvReview, ReviewsFragment.newInstance(it.id))
+                        .commit()
+                    binding.fcvReview.setOnClickListener {
+                        startActivity(ReviewsActivity.intent(this, canteen!!.id))
+                    }
+                } ?: run {
+                    Log.e(TAG, "Canteen is null after update")
+                    Toast.makeText(this, "Failed to load canteen details.", Toast.LENGTH_SHORT).show()
+                    onLogout()
+                }
+            }
+        }
+
         updateCanteenDetails {
             // This block runs only after the canteen is successfully fetched
             canteen?.let {
@@ -42,7 +72,7 @@ class OverviewActivity : AppCompatActivity() {
                     .commit()
                 binding.fcvReview.setOnClickListener {
                     // launch the reviews activity and wait for it to terminate
-                    startActivity(ReviewsActivity.intent(this, c.id))
+                    startActivity(ReviewsActivity.intent(this, canteen!!.id))
                 }
             } ?: run {
                 Log.e(TAG, "Canteen is null after update")
@@ -51,10 +81,15 @@ class OverviewActivity : AppCompatActivity() {
             }
         }
 
-
         // TODO: Map
 
         hideProgress()
+    }
+
+    override fun onResume() {
+        Log.v(TAG, "onResume")
+        super.onResume()
+        updateCanteenDetails()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -105,7 +140,7 @@ class OverviewActivity : AppCompatActivity() {
     private fun onLogout() {
         Log.v(TAG, "onLogout")
         (application as CanteenCheckerAdminApplication).authenticationToken = null
-        finish()
+        startActivity(LoginActivity.intent(this))
     }
 
     private fun onSave() {
@@ -129,6 +164,7 @@ class OverviewActivity : AppCompatActivity() {
             writeWaitingTime()
         }
 
+        sendCanteenChangedBroadcast(canteen!!.id)
         hideProgress()
     }
 

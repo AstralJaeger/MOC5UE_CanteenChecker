@@ -9,6 +9,7 @@
     <string name="message_login_failed">Login failed, pleaase check username and password</string>
 
     <!-- OverviewActivity -->
+    <string name="title_activity_overview">OverviewActivity</string>
     <string name="text_dish">Dish of the day</string>
     <string name="text_waiting_time">Waiting time</string>
     <string name="text_minutes">minutes</string>

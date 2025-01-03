@@ -4,7 +4,7 @@
 
     <application
         android:name=".CanteenCheckerAdminApplication"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -15,9 +15,9 @@
         android:theme="@style/Theme.CanteenCheckerAdminApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".ui.OverviewActivity"
             android:exported="true"
-            android:label="Login"
+            android:label="@string/title_activity_overview"
             android:theme="@style/Theme.CanteenCheckerAdminApp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,15 +25,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.OverviewActivity"
-            android:exported="false"
-            android:label="@string/title_activity_review"
-            android:theme="@style/Theme.CanteenCheckerAdminApp"/>
+            android:name=".ui.LoginActivity"
+            android:exported="true"
+            android:label="Login"
+            android:theme="@style/Theme.CanteenCheckerAdminApp">
+        </activity>
         <activity
             android:name=".ui.ReviewsActivity"
             android:exported="false"
             android:label="@string/title_activity_review"
             android:theme="@style/Theme.CanteenCheckerAdminApp"/>
+
+        <service android:name=".CanteenCheckerFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

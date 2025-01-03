@@ -27,9 +27,7 @@ class ReviewsFragment : Fragment() {
 
     private val receiver = object : CanteenChangedBroadcastReceiver(){
         override fun onReceiveCanteenChanged(canteenId: String) {
-            if(canteenId == this@ReviewsFragment.canteenId){
-                updateReviews()
-            }
+            updateReviews()
         }
     }
 
