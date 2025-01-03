@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/distance_small"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/distance_small">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/appIcon"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="@dimen/distance_small"
+            android:layout_marginTop="@dimen/distance_small"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+        <RatingBar
+            android:id="@+id/rbRating"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/distance_small"
+            android:layout_marginTop="@dimen/distance_small"
+            android:isIndicator="true"
+            android:numStars="5"
+            app:layout_constraintStart_toEndOf="@+id/appIcon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rvAuthorName"
+            style="@style/TextAppearance.MaterialComponents.Overline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/distance_small"
+            android:layout_marginTop="@dimen/distance_extra_small"
+            android:text="AuthorName"
+            app:layout_constraintStart_toEndOf="@+id/appIcon"
+            app:layout_constraintTop_toBottomOf="@+id/rbRating" />
+
+        <TextView
+            android:id="@+id/tvRemark"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/distance_small"
+            android:layout_marginTop="@dimen/distance_small"
+            android:text="@string/LoremIpsum"
+            android:textAlignment="textStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appIcon" />
+
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/distance_small"
+            android:layout_marginVertical="@dimen/distance_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/dangerous"
+            app:tint="#E91E63" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
