@@ -13,6 +13,7 @@ import android.widget.ImageButton
 import android.widget.RatingBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
@@ -36,7 +37,15 @@ class ReviewsActivity: AppCompatActivity() {
     private lateinit var binding: ActivityReviewsBinding
     private val reviewsAdapter = ReviewsAdapter { reviewId: String ->
         Log.v(TAG, "onDeleteReview $reviewId")
-        deleteReview(reviewId)
+
+        AlertDialog.Builder(this)
+            .setTitle("Delete Review")
+            .setMessage("Do you really want to delete this review?")
+            .setPositiveButton("Yes") { _, _ ->
+                deleteReview(reviewId)
+            }
+            .setNegativeButton("No") { _, _ -> }
+            .show()
     }
 
     private val receiver = object : CanteenChangedBroadcastReceiver() {

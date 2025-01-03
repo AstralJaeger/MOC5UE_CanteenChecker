@@ -39,6 +39,7 @@
     <string name="password">" Password"</string>
     <string name="username">" Username"</string>
     <string name="LoremIpsum">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</string>
+    <string name="enter_an_address">Enter an address</string>
 
 
 </resources>

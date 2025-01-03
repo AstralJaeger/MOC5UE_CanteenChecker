@@ -62,34 +62,9 @@ class OverviewActivity : AppCompatActivity() {
             }
         }
 
-        updateCanteenDetails {
-            // This block runs only after the canteen is successfully fetched
-            canteen?.let {
-                Log.v(TAG, "inflating canteen reviews fragment")
-                val c = it
-                supportFragmentManager.beginTransaction()
-                    .add(R.id.fcvReview, ReviewsFragment.newInstance(c.id))
-                    .commit()
-                binding.fcvReview.setOnClickListener {
-                    // launch the reviews activity and wait for it to terminate
-                    startActivity(ReviewsActivity.intent(this, canteen!!.id))
-                }
-            } ?: run {
-                Log.e(TAG, "Canteen is null after update")
-                Toast.makeText(this, "Failed to load canteen details.", Toast.LENGTH_SHORT).show()
-                onLogout()
-            }
-        }
-
         // TODO: Map
 
         hideProgress()
-    }
-
-    override fun onResume() {
-        Log.v(TAG, "onResume")
-        super.onResume()
-        updateCanteenDetails()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
